@@ -2,8 +2,7 @@ type LoginPayload = {
   email: string;
   password: string;
 }
-
-export interface LoginResponse {
+interface LoginResponse {
   token: string;
   user: {
     id: string;
@@ -13,7 +12,7 @@ export interface LoginResponse {
   };
 }
 
-export async function login(payload: LoginPayload): Promise<LoginResponse> {
+export async function requestLogin(payload: LoginPayload): Promise<LoginResponse> {
   
   const response = await fetch("http://localhost:3000/users/login", {
     method: "POST",

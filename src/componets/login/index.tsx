@@ -7,7 +7,7 @@ import {
   EyeOff,
   ArrowRight,
 } from "lucide-react";
-import { login } from "../../services/login/login";
+import { requestLogin } from "../../services/login/login";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -38,7 +38,7 @@ export default function Login() {
             rememberMe,
         });
       
-        const data = await login({email, password});
+        const data = await requestLogin({email, password});
         
         ctx.signIn({
           token: data.token, 
@@ -161,7 +161,7 @@ export default function Login() {
               </label>
 
               <a
-                href="/forgot-password"
+                href="#"
                 className="text-lime-400 hover:text-lime-300 transition-colors font-medium"
               >
                 Esqueci minha senha
